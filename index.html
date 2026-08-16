@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARTOON TV — 90s Vintage CRT Television</title>
+    <meta name="description" content="An ultra-realistic 90s vintage CRT television experience with physical knobs, mechanical buttons, authentic analog broadcast effects, and childhood cartoons.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=VT323&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Room Lighting cast by the CRT Screen onto the Wall & Surface -->
+    <div id="room-ambient" class="room-ambient">
+        <div class="room-glow" id="room-glow"></div>
+        <div class="table-surface"></div>
+    </div>
+
+    <!-- Main Physical CRT Television Assembly -->
+    <div class="tv-wrapper">
+        <main id="tv-set" class="tv-set" role="region" aria-label="Vintage 1990s CRT Television">
+            
+            <!-- Heavy Molded Plastic TV Housing with Double Perimeter Rim Trim -->
+            <div class="tv-cabinet-chassis">
+                
+                <!-- Metallic Highlight Rim -->
+                <div class="tv-silver-trim">
+                    <div class="tv-fascia">
+
+                        <!-- ===================================================================
+                             1. LEFT / MAIN: Deep Recessed CRT Screen Housing
+                             =================================================================== -->
+                        <section class="tv-screen-bay" aria-label="CRT Screen">
+                            <!-- 3D Beveled Screen Funnel (Giving physical depth inside the cabinet) -->
+                            <div class="bevel-top">
+                                <div class="bevel-edge-highlight"></div>
+                            </div>
+                            <div class="bevel-left"></div>
+                            <div class="bevel-right"></div>
+                            <div class="bevel-bottom">
+                                <div class="bottom-ridge"></div>
+                                <!-- Printed Vintage Brand Logo -->
+                                <div class="tv-brand-stamp">CARTOON TV · SOLID STATE</div>
+                            </div>
+
+                            <!-- Physical Curved CRT Glass Tube -->
+                            <div id="crt-tube" class="crt-tube" title="Double click screen for tracking glitch!">
+                                
+                                <!-- Cartoon Image Layer Inside Tube -->
+                                <div id="cartoon-stage" class="cartoon-stage">
+                                    <div id="cartoon-bg-curr" class="cartoon-screen-img active"></div>
+                                    <div class="crt-vignette"></div>
+                                    <div class="crt-color-tint" id="crt-color-tint"></div>
+                                    <div class="crt-tuning-noise" id="crt-tuning-noise"></div>
+                                </div>
+
+                                <!-- Pure Analog CRT Effects Inside Glass -->
+                                <div class="crt-scanlines"></div>
+                                <div class="crt-phosphor-grid"></div>
+                                <div class="crt-glass-glare"></div>
+                                <div class="crt-static-noise" id="crt-static"></div>
+
+                                <!-- Large Prominent Cartoon Title Inside Screen (Upper Center) -->
+                                <div class="crt-title-container" id="crt-title-container">
+                                    <h1 class="crt-cartoon-title" id="cartoon-title">DORAEMON</h1>
+                                </div>
+
+                                <!-- Temporary Green On-Screen Display (Channel / Volume / Tracking) -->
+                                <div class="crt-osd-overlay" id="crt-osd-overlay">
+                                    <span id="crt-osd-text">CH 01</span>
+                                </div>
+
+                                <!-- Memory Mode Subtitle Notification -->
+                                <div class="crt-memory-toast" id="crt-memory-toast">
+                                    <span>WELCOME BACK.</span>
+                                </div>
+
+                                <!-- Standby Screen Prompt (Click to Turn On) -->
+                                <div class="crt-standby-overlay" id="standby-overlay">
+                                    <div class="standby-prompt">
+                                        <div class="standby-icon">⏻</div>
+                                        <div class="standby-text">CLICK TO TURN ON TV</div>
+                                        <div class="standby-sub">CH 01 · DORAEMON READY</div>
+                                    </div>
+                                </div>
+
+                                <!-- Cathode Ray Shutdown Collapse Layer -->
+                                <div class="crt-shutdown-layer" id="shutdown-layer">
+                                    <div class="cathode-line"></div>
+                                </div>
+
+                            </div> <!-- /crt-tube -->
+
+                            <!-- Bottom Bezel Manufacturing Label -->
+                            <div class="tv-sub-bezel">
+                                <div class="tv-screw screw-bl">✕</div>
+                                <div class="tv-model-specs">
+                                    <span>MODEL CT-2004</span>
+                                    <span>PAL 50Hz · AC 220V ~ 50Hz</span>
+                                    <span>MADE FOR HOME ENTERTAINMENT</span>
+                                </div>
+                                <div class="tv-screw screw-br">✕</div>
+                            </div>
+                        </section> <!-- /tv-screen-bay -->
+
+
+                        <!-- ===================================================================
+                             2. RIGHT: Physical Analog TV Control Console & Speaker
+                             =================================================================== -->
+                        <aside class="tv-control-console" aria-label="Physical TV Controls">
+                            
+                            <!-- Top Row: Screws & Red Power Pilot LED -->
+                            <div class="console-top-strip">
+                                <div class="tv-screw screw-1">✕</div>
+                                <div class="power-led-unit" title="Power Status Indicator">
+                                    <div class="power-led active" id="power-led"></div>
+                                    <span class="ctrl-label">POWER</span>
+                                </div>
+                                <div class="tv-screw screw-2">✕</div>
+                            </div>
+
+                            <!-- 1. Physical Power & Play Rocker Push Buttons -->
+                            <div class="console-push-row">
+                                <button class="hardware-push-btn btn-power" id="btn-power" title="TV Power On/Off (P key)">
+                                    <span class="push-cap cap-red"></span>
+                                    <span class="push-text">POWER</span>
+                                </button>
+                                <button class="hardware-push-btn btn-play" id="btn-play" title="Play / Pause Audio (Spacebar)">
+                                    <span class="push-cap cap-blue"></span>
+                                    <span class="push-text" id="play-btn-text">PLAY</span>
+                                </button>
+                            </div>
+
+                            <!-- 2. Main Mechanical Rotary Channel Selector Knob -->
+                            <div class="channel-rotary-section">
+                                <span class="console-section-title">CHANNEL</span>
+                                
+                                <div class="rotary-dial-housing">
+                                    <!-- Surrounding Printed Channel Markers -->
+                                    <div class="channel-scale-markers">
+                                        <span class="scale-num num-1 active" data-ch="0">01</span>
+                                        <span class="scale-num num-2" data-ch="1">02</span>
+                                        <span class="scale-num num-3" data-ch="2">03</span>
+                                        <span class="scale-num num-4" data-ch="3">04</span>
+                                        <span class="scale-num num-5" data-ch="4">05</span>
+                                        <span class="scale-num num-6" data-ch="5">06</span>
+                                        <span class="scale-num num-7" data-ch="6">07</span>
+                                        <span class="scale-num num-8" data-ch="7">08</span>
+                                    </div>
+                                    
+                                    <!-- The Physical Ridged Knob -->
+                                    <div class="rotary-knob-base">
+                                        <button class="physical-rotary-knob" id="channel-knob" title="Click or Scroll Wheel to Rotate Channel">
+                                            <div class="knob-serrations"></div>
+                                            <div class="knob-cap">
+                                                <div class="knob-indicator-needle"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Mechanical Step Buttons (CH - / CH +) -->
+                                <div class="channel-step-row">
+                                    <button class="step-key" id="btn-ch-prev" title="Previous Channel (Down Arrow)">
+                                        <span>CH −</span>
+                                    </button>
+                                    <button class="step-key" id="btn-ch-next" title="Next Channel (Up Arrow)">
+                                        <span>CH +</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 3. Analog Rotary Adjustment Knobs: Volume, Brightness, Contrast, Tuning -->
+                            <div class="analog-knobs-grid">
+                                <!-- Volume Rotary Knob -->
+                                <div class="mini-knob-col">
+                                    <span class="mini-label">VOLUME</span>
+                                    <div class="mini-knob-wrap">
+                                        <button class="mini-rotary-knob" id="knob-volume" title="Volume: Click, Drag or Scroll">
+                                            <div class="mini-needle" id="needle-volume"></div>
+                                        </button>
+                                    </div>
+                                    <span class="scale-text">VOL</span>
+                                </div>
+
+                                <!-- Tuning Knob (Analog Static/Noise Adjust) -->
+                                <div class="mini-knob-col">
+                                    <span class="mini-label">TUNING</span>
+                                    <div class="mini-knob-wrap">
+                                        <button class="mini-rotary-knob" id="knob-tuning" title="Fine Tuning: Rotate to adjust signal clarity">
+                                            <div class="mini-needle" id="needle-tuning"></div>
+                                        </button>
+                                    </div>
+                                    <span class="scale-text">FINE</span>
+                                </div>
+
+                                <!-- Brightness Knob -->
+                                <div class="mini-knob-col">
+                                    <span class="mini-label">BRIGHT</span>
+                                    <div class="mini-knob-wrap">
+                                        <button class="mini-rotary-knob" id="knob-brightness" title="Adjust Screen Brightness">
+                                            <div class="mini-needle" id="needle-brightness"></div>
+                                        </button>
+                                    </div>
+                                    <span class="scale-text">BRT</span>
+                                </div>
+
+                                <!-- Contrast Knob -->
+                                <div class="mini-knob-col">
+                                    <span class="mini-label">CONTRAST</span>
+                                    <div class="mini-knob-wrap">
+                                        <button class="mini-rotary-knob" id="knob-contrast" title="Adjust Cartoon Contrast">
+                                            <div class="mini-needle" id="needle-contrast"></div>
+                                        </button>
+                                    </div>
+                                    <span class="scale-text">CNT</span>
+                                </div>
+                            </div>
+
+                            <!-- 4. Memory Mode Push Key -->
+                            <div class="memory-push-wrap">
+                                <button class="hardware-push-btn btn-memory" id="btn-memory" title="Toggle 90s Memory Mode (M key)">
+                                    <span class="push-cap cap-amber"></span>
+                                    <span class="push-text">MEMORY MODE</span>
+                                </button>
+                            </div>
+
+                            <!-- 5. Realistic Physical Speaker Grille (Dozens of Horizontal Slats) -->
+                            <div class="tv-speaker-chassis" aria-label="Built-in TV Speaker">
+                                <div class="speaker-indicator" id="speaker-led" title="Audio Wave Indicator">♪</div>
+                                <div class="speaker-slat-array">
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                    <div class="slat-groove"></div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Console Screw -->
+                            <div class="console-bottom-strip">
+                                <div class="tv-screw screw-3">✕</div>
+                                <span class="console-footer-stamp">HI-FI AUDIO</span>
+                                <div class="tv-screw screw-4">✕</div>
+                            </div>
+
+                        </aside> <!-- /tv-control-console -->
+
+                    </div> <!-- /tv-fascia -->
+                </div> <!-- /tv-silver-trim -->
+            </div> <!-- /tv-cabinet-chassis -->
+
+            <!-- TV Solid Feet / Angled Legs -->
+            <div class="tv-stand-legs">
+                <div class="tv-foot foot-left"></div>
+                <div class="tv-foot foot-right"></div>
+            </div>
+
+            <!-- Heavy Contact Surface Shadow -->
+            <div class="tv-table-shadow"></div>
+
+        </main>
+    </div> <!-- /tv-wrapper -->
+
+    <!-- Hidden HTML5 Audio Element for Local Songs -->
+    <audio id="html5-audio" preload="metadata"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
