@@ -37,9 +37,11 @@
 }
 
 html, body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: #08090d;
     color: #e5e7eb;
     font-family: var(--font-tech);
@@ -95,7 +97,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
 }
 
 /* ==========================================================================
-   Main Physical TV Assembly (78-85% Viewport Height)
+   Main Physical TV Assembly
    ========================================================================== */
 .tv-wrapper {
     position: relative;
@@ -104,15 +106,16 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    padding: 1.5vh 2vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 2.5vh 2vw 4.5vh 2vw;
 }
 
 .tv-set {
     position: relative;
     width: min(94vw, 138vh);
     height: min(84vh, 64vw);
-    max-height: 85vh;
+    max-height: 86vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -613,8 +616,9 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
 /* 1. Hardware Push Buttons */
 .console-push-row {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     margin-top: 2px;
+    width: 100%;
 }
 
 .hardware-push-btn {
@@ -627,9 +631,10 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     color: #e2e8f0;
     transition: all 0.1s ease;
+    touch-action: manipulation;
 }
 
 .hardware-push-btn:active, .hardware-push-btn.pressed {
@@ -652,6 +657,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     width: 5px;
     height: 5px;
     border-radius: 1px;
+    flex-shrink: 0;
 }
 
 .cap-red { background: #ef4444; }
@@ -667,6 +673,22 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     font-size: 7.5px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Responsive Middle & Sub Decks */
+.console-middle-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.console-sub-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
 }
 
 /* 2. Main Mechanical Rotary Channel Knob */
@@ -704,6 +726,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     line-height: 1;
     cursor: pointer;
     pointer-events: auto;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .num-1 { top: 0px; left: 50%; transform: translateX(-50%); }
@@ -797,6 +820,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     font-size: 7.5px;
     font-weight: 700;
     transition: all 0.1s ease;
+    touch-action: manipulation;
 }
 
 .step-key:active {
@@ -810,6 +834,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     grid-template-columns: 1fr 1fr;
     gap: 4px;
     padding: 2px 0;
+    width: 100%;
 }
 
 .mini-knob-col {
@@ -861,15 +886,6 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     color: #64748b;
 }
 
-/* 4. Memory Mode Push Key */
-.memory-push-wrap {
-    padding: 2px 0;
-}
-
-.btn-memory {
-    width: 100%;
-}
-
 /* 5. Realistic Physical Speaker Grille */
 .tv-speaker-chassis {
     position: relative;
@@ -878,6 +894,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
     border-radius: 5px;
     padding: 4px;
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.9);
+    width: 100%;
 }
 
 .speaker-indicator {
@@ -931,7 +948,7 @@ button, input[type="range"], .physical-rotary-knob, .mini-rotary-knob, .crt-tube
 
 /* ==========================================================================
    TV Stand / Angled Legs & Heavy Surface Shadow
-   ========================================================================== */
+   ========================================================================= */
 .tv-stand-legs {
     position: absolute;
     bottom: -18px;
@@ -981,26 +998,242 @@ body.memory-mode-active .crt-tube {
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
-@media (max-width: 768px) {
+
+/* Tablet & Mobile Portrait Mode (Stacked Natural Layout) */
+@media (max-width: 820px) {
+    .tv-wrapper {
+        padding: 16px 12px 36px 12px;
+        align-items: flex-start;
+    }
+
     .tv-set {
-        width: 98vw;
+        width: min(96vw, 480px);
         height: auto;
-        max-height: 94vh;
+        max-height: none;
+        margin: 8px auto 20px auto;
+    }
+
+    .tv-cabinet-chassis {
+        border-radius: 24px;
+        padding: 5px;
+    }
+
+    .tv-silver-trim {
+        border-radius: 20px;
+        padding: 3px;
     }
 
     .tv-fascia {
-        grid-template-columns: 1fr 125px;
-        gap: 6px;
-        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 8px;
+        border-radius: 17px;
+        grid-template-columns: unset;
+    }
+
+    .tv-screen-bay {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3.05;
+        min-height: 220px;
+        border-radius: 14px;
+    }
+
+    .crt-tube {
+        width: calc(100% - 12px);
+        border-radius: 36px / 28px;
     }
 
     .crt-cartoon-title {
+        font-size: clamp(26px, 6.5vw, 38px);
+        letter-spacing: 2px;
+    }
+
+    .crt-title-container {
+        top: 12%;
+    }
+
+    .standby-text {
+        font-size: clamp(15px, 4vw, 20px);
+    }
+
+    .standby-icon {
         font-size: 26px;
     }
 
+    /* Mobile Control Console Dashboard */
+    .tv-control-console {
+        width: 100%;
+        padding: 8px 10px;
+        gap: 8px;
+        border-radius: 12px;
+    }
+
+    .console-top-strip {
+        padding: 0 4px;
+    }
+
+    .console-push-row {
+        display: flex;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .hardware-push-btn {
+        padding: 8px 4px;
+        min-height: 38px;
+        border-radius: 6px;
+    }
+
+    .hardware-push-btn .push-text {
+        font-size: 8.5px;
+        letter-spacing: 0.8px;
+    }
+
+    .push-cap {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* 2-Column Dashboard on Mobile */
+    .console-middle-deck {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .channel-rotary-section {
+        padding: 6px 4px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.22);
+        justify-content: space-between;
+        gap: 6px;
+    }
+
     .rotary-dial-housing {
-        width: 62px;
-        height: 62px;
+        width: 76px;
+        height: 76px;
+        margin: 2px auto;
+    }
+
+    .rotary-knob-base {
+        width: 50px;
+        height: 50px;
+    }
+
+    .knob-cap {
+        width: 30px;
+        height: 30px;
+    }
+
+    .scale-num {
+        font-size: 8px;
+    }
+
+    .channel-step-row {
+        gap: 4px;
+    }
+
+    .step-key {
+        padding: 6px 0;
+        font-size: 8.5px;
+        border-radius: 4px;
+    }
+
+    .console-sub-deck {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: space-between;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 6px 8px;
+        background: rgba(0, 0, 0, 0.22);
+    }
+
+    .analog-knobs-grid {
+        gap: 6px;
+        padding: 0;
+    }
+
+    .mini-knob-wrap {
+        width: 26px;
+        height: 26px;
+    }
+
+    .mini-rotary-knob {
+        width: 22px;
+        height: 22px;
+    }
+
+    .mini-label {
+        font-size: 7.5px;
+    }
+
+    .scale-text {
+        font-size: 6.5px;
+    }
+
+    .tv-speaker-chassis {
+        padding: 5px 6px;
+        border-radius: 6px;
+    }
+
+    .speaker-indicator {
+        font-size: 9px;
+        right: 6px;
+    }
+
+    .speaker-slat-array {
+        gap: 2.5px;
+    }
+
+    .console-bottom-strip {
+        padding: 2px 4px;
+    }
+
+    .console-footer-stamp {
+        font-size: 7px;
+    }
+
+    .tv-stand-legs {
+        bottom: -15px;
+        left: 10%;
+        right: 10%;
+    }
+
+    .tv-foot {
+        width: 44px;
+        height: 18px;
+    }
+
+    .tv-table-shadow {
+        bottom: -24px;
+        height: 22px;
+    }
+}
+
+/* Extra Small Mobile Screens (<= 380px) */
+@media (max-width: 380px) {
+    .tv-wrapper {
+        padding: 10px 6px 28px 6px;
+    }
+
+    .tv-fascia {
+        padding: 6px;
+        gap: 6px;
+    }
+
+    .crt-cartoon-title {
+        font-size: 24px;
+    }
+
+    .rotary-dial-housing {
+        width: 68px;
+        height: 68px;
     }
 
     .rotary-knob-base {
@@ -1012,4 +1245,165 @@ body.memory-mode-active .crt-tube {
         width: 26px;
         height: 26px;
     }
+
+    .scale-num {
+        font-size: 7px;
+    }
+
+    .mini-knob-wrap {
+        width: 22px;
+        height: 22px;
+    }
+
+    .mini-rotary-knob {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hardware-push-btn .push-text {
+        font-size: 7.5px;
+    }
 }
+
+/* Landscape Mobile Mode */
+@media (max-height: 540px) and (orientation: landscape) {
+    .tv-wrapper {
+        padding: 1vh 2vw 2vh 2vw;
+        align-items: center;
+    }
+
+    .tv-set {
+        width: min(96vw, 150vh);
+        height: 94vh;
+        max-height: 94vh;
+        margin: 0 auto;
+    }
+
+    .tv-fascia {
+        display: grid;
+        grid-template-columns: 1fr 140px;
+        gap: 5px;
+        padding: 5px;
+        height: 100%;
+    }
+
+    .tv-screen-bay {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+
+    .tv-control-console {
+        padding: 4px;
+        gap: 2px;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .console-push-row {
+        gap: 2px;
+        margin-top: 0;
+    }
+
+    .hardware-push-btn {
+        padding: 2px;
+        min-height: 22px;
+    }
+
+    .hardware-push-btn .push-text {
+        font-size: 6.5px;
+    }
+
+    .console-middle-deck {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .console-sub-deck {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .channel-rotary-section {
+        padding: 1px 0;
+        border: none;
+        background: transparent;
+    }
+
+    .rotary-dial-housing {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto;
+    }
+
+    .rotary-knob-base {
+        width: 38px;
+        height: 38px;
+    }
+
+    .knob-cap {
+        width: 22px;
+        height: 22px;
+    }
+
+    .scale-num {
+        font-size: 6px;
+    }
+
+    .num-2 { top: 5px; right: 5px; }
+    .num-4 { bottom: 5px; right: 5px; }
+    .num-6 { bottom: 5px; left: 5px; }
+    .num-8 { top: 5px; left: 5px; }
+
+    .step-key {
+        padding: 2px 0;
+        font-size: 6.5px;
+    }
+
+    .analog-knobs-grid {
+        gap: 2px;
+    }
+
+    .mini-knob-wrap {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mini-rotary-knob {
+        width: 15px;
+        height: 15px;
+    }
+
+    .mini-label {
+        font-size: 5.5px;
+    }
+
+    .scale-text {
+        font-size: 5px;
+    }
+
+    .tv-speaker-chassis {
+        padding: 2px;
+        border: 1px solid #282a35;
+        background: #0e0f13;
+    }
+
+    .speaker-slat-array {
+        gap: 1.5px;
+    }
+
+    .slat-groove {
+        height: 1px;
+    }
+
+    .tv-stand-legs {
+        bottom: -12px;
+    }
+
+    .tv-foot {
+        width: 36px;
+        height: 14px;
+    }
+}
+

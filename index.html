@@ -121,7 +121,7 @@
                                 <div class="tv-screw screw-2">✕</div>
                             </div>
 
-                            <!-- 1. Physical Power & Play Rocker Push Buttons -->
+                            <!-- 1. Physical Power, Play & Memory Rocker Push Buttons -->
                             <div class="console-push-row">
                                 <button class="hardware-push-btn btn-power" id="btn-power" title="TV Power On/Off (P key)">
                                     <span class="push-cap cap-red"></span>
@@ -131,122 +131,120 @@
                                     <span class="push-cap cap-blue"></span>
                                     <span class="push-text" id="play-btn-text">PLAY</span>
                                 </button>
-                            </div>
-
-                            <!-- 2. Main Mechanical Rotary Channel Selector Knob -->
-                            <div class="channel-rotary-section">
-                                <span class="console-section-title">CHANNEL</span>
-                                
-                                <div class="rotary-dial-housing">
-                                    <!-- Surrounding Printed Channel Markers -->
-                                    <div class="channel-scale-markers">
-                                        <span class="scale-num num-1 active" data-ch="0">01</span>
-                                        <span class="scale-num num-2" data-ch="1">02</span>
-                                        <span class="scale-num num-3" data-ch="2">03</span>
-                                        <span class="scale-num num-4" data-ch="3">04</span>
-                                        <span class="scale-num num-5" data-ch="4">05</span>
-                                        <span class="scale-num num-6" data-ch="5">06</span>
-                                        <span class="scale-num num-7" data-ch="6">07</span>
-                                        <span class="scale-num num-8" data-ch="7">08</span>
-                                    </div>
-                                    
-                                    <!-- The Physical Ridged Knob -->
-                                    <div class="rotary-knob-base">
-                                        <button class="physical-rotary-knob" id="channel-knob" title="Click or Scroll Wheel to Rotate Channel">
-                                            <div class="knob-serrations"></div>
-                                            <div class="knob-cap">
-                                                <div class="knob-indicator-needle"></div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Mechanical Step Buttons (CH - / CH +) -->
-                                <div class="channel-step-row">
-                                    <button class="step-key" id="btn-ch-prev" title="Previous Channel (Down Arrow)">
-                                        <span>CH −</span>
-                                    </button>
-                                    <button class="step-key" id="btn-ch-next" title="Next Channel (Up Arrow)">
-                                        <span>CH +</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- 3. Analog Rotary Adjustment Knobs: Volume, Brightness, Contrast, Tuning -->
-                            <div class="analog-knobs-grid">
-                                <!-- Volume Rotary Knob -->
-                                <div class="mini-knob-col">
-                                    <span class="mini-label">VOLUME</span>
-                                    <div class="mini-knob-wrap">
-                                        <button class="mini-rotary-knob" id="knob-volume" title="Volume: Click, Drag or Scroll">
-                                            <div class="mini-needle" id="needle-volume"></div>
-                                        </button>
-                                    </div>
-                                    <span class="scale-text">VOL</span>
-                                </div>
-
-                                <!-- Tuning Knob (Analog Static/Noise Adjust) -->
-                                <div class="mini-knob-col">
-                                    <span class="mini-label">TUNING</span>
-                                    <div class="mini-knob-wrap">
-                                        <button class="mini-rotary-knob" id="knob-tuning" title="Fine Tuning: Rotate to adjust signal clarity">
-                                            <div class="mini-needle" id="needle-tuning"></div>
-                                        </button>
-                                    </div>
-                                    <span class="scale-text">FINE</span>
-                                </div>
-
-                                <!-- Brightness Knob -->
-                                <div class="mini-knob-col">
-                                    <span class="mini-label">BRIGHT</span>
-                                    <div class="mini-knob-wrap">
-                                        <button class="mini-rotary-knob" id="knob-brightness" title="Adjust Screen Brightness">
-                                            <div class="mini-needle" id="needle-brightness"></div>
-                                        </button>
-                                    </div>
-                                    <span class="scale-text">BRT</span>
-                                </div>
-
-                                <!-- Contrast Knob -->
-                                <div class="mini-knob-col">
-                                    <span class="mini-label">CONTRAST</span>
-                                    <div class="mini-knob-wrap">
-                                        <button class="mini-rotary-knob" id="knob-contrast" title="Adjust Cartoon Contrast">
-                                            <div class="mini-needle" id="needle-contrast"></div>
-                                        </button>
-                                    </div>
-                                    <span class="scale-text">CNT</span>
-                                </div>
-                            </div>
-
-                            <!-- 4. Memory Mode Push Key -->
-                            <div class="memory-push-wrap">
                                 <button class="hardware-push-btn btn-memory" id="btn-memory" title="Toggle 90s Memory Mode (M key)">
                                     <span class="push-cap cap-amber"></span>
-                                    <span class="push-text">MEMORY MODE</span>
+                                    <span class="push-text">MEMORY</span>
                                 </button>
                             </div>
 
-                            <!-- 5. Realistic Physical Speaker Grille (Dozens of Horizontal Slats) -->
-                            <div class="tv-speaker-chassis" aria-label="Built-in TV Speaker">
-                                <div class="speaker-indicator" id="speaker-led" title="Audio Wave Indicator">♪</div>
-                                <div class="speaker-slat-array">
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                    <div class="slat-groove"></div>
-                                </div>
-                            </div>
+                            <!-- Responsive Middle Deck (Channels & Analog Adjustments) -->
+                            <div class="console-middle-deck">
+                                <!-- 2. Main Mechanical Rotary Channel Selector Knob -->
+                                <div class="channel-rotary-section">
+                                    <span class="console-section-title">CHANNEL</span>
+                                    
+                                    <div class="rotary-dial-housing">
+                                        <!-- Surrounding Printed Channel Markers -->
+                                        <div class="channel-scale-markers">
+                                            <span class="scale-num num-1 active" data-ch="0">01</span>
+                                            <span class="scale-num num-2" data-ch="1">02</span>
+                                            <span class="scale-num num-3" data-ch="2">03</span>
+                                            <span class="scale-num num-4" data-ch="3">04</span>
+                                            <span class="scale-num num-5" data-ch="4">05</span>
+                                            <span class="scale-num num-6" data-ch="5">06</span>
+                                            <span class="scale-num num-7" data-ch="6">07</span>
+                                            <span class="scale-num num-8" data-ch="7">08</span>
+                                        </div>
+                                        
+                                        <!-- The Physical Ridged Knob -->
+                                        <div class="rotary-knob-base">
+                                            <button class="physical-rotary-knob" id="channel-knob" title="Click or Scroll Wheel to Rotate Channel">
+                                                <div class="knob-serrations"></div>
+                                                <div class="knob-cap">
+                                                    <div class="knob-indicator-needle"></div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
 
-                            <!-- Bottom Console Screw -->
+                                    <!-- Mechanical Step Buttons (CH - / CH +) -->
+                                    <div class="channel-step-row">
+                                        <button class="step-key" id="btn-ch-prev" title="Previous Channel (Down Arrow)">
+                                            <span>CH −</span>
+                                        </button>
+                                        <button class="step-key" id="btn-ch-next" title="Next Channel (Up Arrow)">
+                                            <span>CH +</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Sub Deck: 4 Analog Knobs + Speaker Grille -->
+                                <div class="console-sub-deck">
+                                    <!-- 3. Analog Rotary Adjustment Knobs: Volume, Brightness, Contrast, Tuning -->
+                                    <div class="analog-knobs-grid">
+                                        <!-- Volume Rotary Knob -->
+                                        <div class="mini-knob-col">
+                                            <span class="mini-label">VOLUME</span>
+                                            <div class="mini-knob-wrap">
+                                                <button class="mini-rotary-knob" id="knob-volume" title="Volume: Click, Drag or Scroll">
+                                                    <div class="mini-needle" id="needle-volume"></div>
+                                                </button>
+                                            </div>
+                                            <span class="scale-text">VOL</span>
+                                        </div>
+
+                                        <!-- Tuning Knob (Analog Static/Noise Adjust) -->
+                                        <div class="mini-knob-col">
+                                            <span class="mini-label">TUNING</span>
+                                            <div class="mini-knob-wrap">
+                                                <button class="mini-rotary-knob" id="knob-tuning" title="Fine Tuning: Rotate to adjust signal clarity">
+                                                    <div class="mini-needle" id="needle-tuning"></div>
+                                                </button>
+                                            </div>
+                                            <span class="scale-text">FINE</span>
+                                        </div>
+
+                                        <!-- Brightness Knob -->
+                                        <div class="mini-knob-col">
+                                            <span class="mini-label">BRIGHT</span>
+                                            <div class="mini-knob-wrap">
+                                                <button class="mini-rotary-knob" id="knob-brightness" title="Adjust Screen Brightness">
+                                                    <div class="mini-needle" id="needle-brightness"></div>
+                                                </button>
+                                            </div>
+                                            <span class="scale-text">BRT</span>
+                                        </div>
+
+                                        <!-- Contrast Knob -->
+                                        <div class="mini-knob-col">
+                                            <span class="mini-label">CONTRAST</span>
+                                            <div class="mini-knob-wrap">
+                                                <button class="mini-rotary-knob" id="knob-contrast" title="Adjust Cartoon Contrast">
+                                                    <div class="mini-needle" id="needle-contrast"></div>
+                                                </button>
+                                            </div>
+                                            <span class="scale-text">CNT</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 5. Realistic Physical Speaker Grille -->
+                                    <div class="tv-speaker-chassis" aria-label="Built-in TV Speaker">
+                                        <div class="speaker-indicator" id="speaker-led" title="Audio Wave Indicator">♪</div>
+                                        <div class="speaker-slat-array">
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                            <div class="slat-groove"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- /console-middle-deck -->
+
+                            <!-- Bottom Console Screw Strip -->
                             <div class="console-bottom-strip">
                                 <div class="tv-screw screw-3">✕</div>
                                 <span class="console-footer-stamp">HI-FI AUDIO</span>
